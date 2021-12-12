@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import Input from './Input';
 
 const Autocomplete = ({ suggestions, ...props }) => {
@@ -10,7 +12,6 @@ const Autocomplete = ({ suggestions, ...props }) => {
   const onChange = e => {
     const userInput = e.target.value;
 
-    // Filter our suggestions that don't contain the user's input
     const unLinked = suggestions.filter(
       suggestion =>
         suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
@@ -57,16 +58,21 @@ const Autocomplete = ({ suggestions, ...props }) => {
   };
   return (
     <>
-      <Input
-        {...props}
-        type='text'
-        onChange={onChange}
-        // onKeyDown={onKeyDown}
-        value={input}
-      />
-      {showSuggestions && input && <SuggestionsListComponent />}
+      <div class='block'>
+        <Input
+          {...props}
+          type='text'
+          onChange={onChange}
+          // onKeyDown={onKeyDown}
+          value={input}
+        />
+        {showSuggestions && input && <SuggestionsListComponent />}
+      </div>
     </>
   );
 };
 
+Autocomplete.propTypes = {
+  suggestions: PropTypes.array,
+};
 export default Autocomplete;

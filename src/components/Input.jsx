@@ -47,13 +47,11 @@ Input.propTypes = {
   inputId: PropTypes.string,
   error: PropTypes.bool,
   errorText: PropTypes.string,
-  inputId: PropTypes.string,
   value: PropTypes.any,
   placeholder: PropTypes.string,
-  color: PropTypes.string,
-  backgroundColor: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   onChange: PropTypes.func,
+  type: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 export default Input;
