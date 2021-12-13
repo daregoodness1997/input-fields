@@ -12,6 +12,7 @@ import NumberInput from './components/NumberInput';
 import RadioInput from './components/RadioInput';
 import SelectInput from './components/SelectInput';
 import Textarea from './components/Textarea';
+import 'rsuite/dist/rsuite.min.css';
 
 const options = ['Lagos', 'Abuja', 'Oyo'];
 const suggestions = [
@@ -26,29 +27,43 @@ const suggestions = [
   'Tail',
   'Wetlands',
 ];
-const selectionRange = {
-  startDate: new Date(),
-  endDate: new Date(),
-  key: 'selection',
-};
 
 function App() {
   return (
-    <div className='relative bg-white overflow-hidden'>
-      <div className='pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48'>
-        <div className='grid grid-cols-2 xm:grid-cols-1  gap-16 max-w-7xl mx-auto px-4  sm:px-6  lg:px-8'>
+    <>
+      <div
+        style={{
+          display: 'grid',
+          placeItems: 'center',
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+        <div
+          style={{
+            background: 'white',
+            width: '900px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3,1fr)',
+            gap: '40px',
+          }}
+        >
           <Input
             label='Full Name'
             type='text'
             placeholder='Goodness Dare'
             error={true}
           />
-          <Textarea label='Description' placeholder='type here' />
-          <EmailInput label='E-mail' />
-          <DateInput label='Date' />
-          <DateTimeInput label='Date and Time' />
+          <Textarea
+            label='Description'
+            error={true}
+            errorText='Errorcheck your field'
+          />
+          <EmailInput label='E-mail' placeholder='E-mail' />
+          <DateInput label='Date' placeholder='Date' />
+          <DateTimeInput label='Date and Time' placeholder='Date and Time' />
 
-          <Input label='Password' type='password' placeholder='********' />
+          <Input label='Password' type='password' placeholder='Password' />
           <NumberInput label='Number' />
           <DecimalInput label='Decimal' />
 
@@ -57,10 +72,10 @@ function App() {
           <FileUpload label='Upload' />
           <RadioInput label='Personal' />
           <CheckboxInput label='On' />
-          <DateRangeInput ranges={selectionRange} />
+          <DateRangeInput ranges={[]} hoverRange='week' />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

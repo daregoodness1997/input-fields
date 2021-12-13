@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/input.css';
 
 const Textarea = ({
   label,
@@ -11,28 +12,24 @@ const Textarea = ({
 }) => {
   return (
     <>
-      <div
-        class={`items-center border-b-2 py-2 mb-2 ${
-          error ? 'border-red-500 ' : 'border-blue-700 '
-        } focus:border-purple-500`}
-      >
-        <label
-          class='block text-gray-500 font-medium mb-2 md:text-left mb-1 md:mb-0 pr-4'
-          htmlFor={inputId}
-        >
-          {label}
-        </label>
-        <textarea
-          class='appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-3 px-4 pr-8  leading-tight focus:outline-none '
-          id={inputId}
-          value={value}
-          placeholder={placeholder}
-          onChange={onChange}
-        />
+      <div>
+        <div class='form__div'>
+          <textarea
+            class={`form__input ${error ? 'error__input' : null}`}
+            id={inputId}
+            placeholder={placeholder}
+            onChange={onChange}
+            style={{ minHeight: '80px' }}
+            value={value}
+          />
+          <label for={inputId} class='form__label'>
+            {label}
+          </label>
+        </div>
+        {error ? (
+          <p class='text-red-500 text-xs italic mt-10'>{errorText}</p>
+        ) : null}
       </div>
-      {error ? (
-        <p class='text-red-500 text-xs italic mt-2'>{errorText}</p>
-      ) : null}
     </>
   );
 };

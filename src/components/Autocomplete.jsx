@@ -37,7 +37,7 @@ const Autocomplete = ({ suggestions, ...props }) => {
           let className;
           // Flag the active suggestion with a class
           if (index === activeSuggestionIndex) {
-            className = 'suggestion-active bg-blue-200 text-blue-800 ';
+            className = 'suggestion-active bg-blue-100 text-blue-900 ';
           }
           return (
             <li

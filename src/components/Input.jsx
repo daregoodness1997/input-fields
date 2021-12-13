@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/input.css';
 
 const Input = ({
   label,
@@ -9,33 +10,28 @@ const Input = ({
   errorText,
   type,
   value,
-  placeholder,
   required,
+  step,
 }) => {
   return (
     <>
-      <div
-        class={`block border-b-2  ${
-          error ? 'border-red-500 ' : 'border-blue-700 '
-        } focus:border-purple-500`}
-      >
-        <label
-          class='block text-gray-500 font-medium  md:text-left mb-2 md:mb-0 pr-4'
-          htmlFor={inputId}
-        >
-          {label}
-        </label>
-        <input
-          class='appearance-none bg-transparent border-none w-full text-gray-700 py-1 px-2 pr-2  focus:outline-none '
-          id={inputId}
-          type={type}
-          value={value}
-          placeholder={placeholder}
-          onChange={onChange}
-          required={required}
-        />
+      <div>
+        <div class='form__div'>
+          <input
+            type={type}
+            class='form__input'
+            id={inputId}
+            onChange={onChange}
+            value={value}
+            required={required}
+            step={step}
+          />
+          <label for={inputId} class='form__label'>
+            {label}
+          </label>
+        </div>
         {error ? (
-          <p class='text-red-500 text-xs italic mt-2'>{errorText}</p>
+          <p class='text-red-500 text-xs italic mt-10'>{errorText}</p>
         ) : null}
       </div>
     </>
@@ -52,6 +48,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   type: PropTypes.string,
   required: PropTypes.bool,
+  step: PropTypes.any,
 };
 
 export default Input;
