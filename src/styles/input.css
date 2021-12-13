@@ -24,7 +24,8 @@
   position: relative;
   height: 48px;
   margin-bottom: 1.5rem;
-  min-width: 360px;
+  max-width: 360px;
+  /* width: 100%; */
 }
 .form__input {
   position: absolute;
@@ -41,8 +42,16 @@
   z-index: 1;
 }
 
+.form__input:focus {
+  box-shadow: 10px 10px 30px rgba(156, 156, 255, 0.25);
+}
+
 .error__input {
   border: 1px solid red;
+}
+
+.error__label {
+  color: red !important;
 }
 .form__select {
   width: 100%;
@@ -69,12 +78,17 @@
   z-index: 10;
 }
 
+.form__input:focus + .form__label {
+  color: var(--first-color);
+}
+
 /*Input focus*/
 
 /*Input focus sticky top label*/
 /* .form__select:not(:placeholder-shown).form__input:not(:focus) +  */
 .form__select:focus {
   border: 1.5px solid var(--first-color);
+  box-shadow: 10px 10px 30px rgba(156, 156, 255, 0.25);
 }
 
 .form__label {
@@ -109,17 +123,6 @@
   font-size: 10px;
 }
 
-/*Input focus move up label*/
-/* .form__label {
-  top: -0.5rem;
-  left: 0.8rem;
-  color: var(--first-color);
-  font-size: var(--small-font-size);
-  font-weight: 500;
-  z-index: 10;
-} */
-
-/*Input focus sticky top label*/
 .form__label {
   top: -0.5rem;
   left: 0.8rem;

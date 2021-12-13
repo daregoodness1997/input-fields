@@ -19,14 +19,17 @@ const Input = ({
         <div class='form__div'>
           <input
             type={type}
-            class='form__input'
+            class={`form__input ${error ? 'error__input' : null}`}
             id={inputId}
             onChange={onChange}
             value={value}
             required={required}
             step={step}
           />
-          <label for={inputId} class='form__label'>
+          <label
+            for={inputId}
+            class={`form__label ${error ? 'error__label' : null}`}
+          >
             {label}
           </label>
         </div>

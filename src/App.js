@@ -39,15 +39,7 @@ function App() {
           height: '100vh',
         }}
       >
-        <div
-          style={{
-            background: 'white',
-            width: '900px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3,1fr)',
-            gap: '40px',
-          }}
-        >
+        <div className='container'>
           <Input
             label='Full Name'
             type='text'

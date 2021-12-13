@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/input.css';
+import PropTypes from 'prop-types';
 
 const Textarea = ({
   label,
@@ -9,6 +10,7 @@ const Textarea = ({
   errorText,
   value,
   placeholder,
+  required,
 }) => {
   return (
     <>
@@ -21,8 +23,12 @@ const Textarea = ({
             onChange={onChange}
             style={{ minHeight: '80px' }}
             value={value}
+            required={required}
           />
-          <label for={inputId} class='form__label'>
+          <label
+            for={inputId}
+            class={`${error ? 'error__label' : null} form__label `}
+          >
             {label}
           </label>
         </div>
@@ -32,6 +38,17 @@ const Textarea = ({
       </div>
     </>
   );
+};
+
+Textarea.propTypes = {
+  label: PropTypes.string,
+  inputId: PropTypes.string,
+  error: PropTypes.bool,
+  errorText: PropTypes.string,
+  value: PropTypes.any,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+  required: PropTypes.bool,
 };
 
 export default Textarea;
