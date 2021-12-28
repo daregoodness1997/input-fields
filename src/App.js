@@ -36,7 +36,7 @@ function App() {
           display: 'grid',
           placeItems: 'center',
           width: '100vw',
-          height: '100vh',
+          minHeight: '100vh',
         }}
       >
         <div className='container'>
